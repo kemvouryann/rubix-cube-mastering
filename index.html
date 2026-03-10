@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Rubik's Cube Mastering</title>
+      <link rel="stylesheet" href="styles.css" />
+      <script async src="https://unpkg.com/es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+      <script type="importmap">
+        {
+          "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+          }
+        }
+      </script>
+    </head>
+    <body>
+      <div class="ui">
+        <div class="brand">
+          <div class="gan-logo">GAN</div>
+          <div>
+            <h1>Rubik's Cube Mastering</h1>
+            <p class="brand-sub">3D Training Cube</p>
+          </div>
+        </div>
+
+        <p>Drag to rotate the cube. Use the move buttons to turn real sides.</p>
+
+        <div class="buttons">
+          <button data-move="U">Top Left</button>
+          <button data-move="U'">Top Right</button>
+          <button data-move="R">Right Down</button>
+          <button data-move="R'">Right Up</button>
+          <button data-move="F">Front Left</button>
+          <button data-move="F'">Front Right</button>
+          <button data-move="L">Left Up</button>
+          <button data-move="L'">Left Down</button>
+          <button data-move="D">Bottom Right</button>
+          <button data-move="D'">Bottom Left</button>
+          <button data-move="B">Back Right</button>
+          <button data-move="B'">Back Left</button>
+        </div>
+
+        <div class="move-help">
+          <div class="guide-cube">
+            <div class="guide-face face-top-guide">
+              <div class="guide-label">Top</div>
+              <div class="guide-arrow left">←</div>
+              <div class="guide-arrow right">→</div>
+            </div>
+
+            <div class="guide-row">
+              <div class="guide-face face-left-guide">
+                <div class="guide-label">Left</div>
+                <div class="guide-arrow up">↑</div>
+                <div class="guide-arrow down">↓</div>
+              </div>
+
+              <div class="guide-face face-front-guide">
+                <div class="guide-label">Front</div>
+                <div class="guide-arrow left">←</div>
+                <div class="guide-arrow right">→</div>
+              </div>
+
+              <div class="guide-face face-right-guide">
+                <div class="guide-label">Right</div>
+                <div class="guide-arrow up">↑</div>
+                <div class="guide-arrow down">↓</div>
+              </div>
+            </div>
+
+            <div class="guide-face face-bottom-guide">
+              <div class="guide-label">Bottom</div>
+              <div class="guide-arrow left">←</div>
+              <div class="guide-arrow right">→</div>
+            </div>
+
+            <div class="guide-face face-back-guide">
+              <div class="guide-label">Back</div>
+              <div class="guide-arrow left">←</div>
+              <div class="guide-arrow right">→</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="buttons secondary">
+          <button id="scramble-btn">Scramble</button>
+          <button id="reset-btn">Solve</button>
+        </div>
+
+        <div class="arrow-pad">
+          <button id="rotate-up" type="button">▲</button>
+          <div class="arrow-row">
+            <button id="rotate-left" type="button">◀</button>
+            <button id="rotate-down" type="button">▼</button>
+            <button id="rotate-right" type="button">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <canvas id="scene"></canvas>
+
+      <script type="module" src="script.js"></script>
+    </body>
+  </html>
