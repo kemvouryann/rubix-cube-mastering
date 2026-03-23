@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ryanns Rubix Cube Solver</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script async src="https://unpkg.com/es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/cubejs/lib/cube.js"></script>
+    <script src="https://unpkg.com/cubejs/lib/solve.js"></script>
+  </head>
+  <body>
+    <aside class="panel">
+      <div class="panel-copy">
+        <p class="eyebrow">Cube Input Solver</p>
+        <h1>Ryanns Rubix Cube Solver</h1>
+        <p class="intro">
+          Enter the scrambled cube colors face by face, then press solve. The centers stay fixed, and the solver only unlocks when the cube entry is complete and balanced.
+        </p>
+      </div>
+
+      <section class="buttons">
+        <button id="solve-btn" type="button" disabled>Show Solve</button>
+        <button id="clear-btn" type="button">Clear Cube</button>
+      </section>
+
+      <section class="status-list">
+        <div class="status-row">
+          <span class="status-key">Filled</span>
+          <span class="status-value" id="filled-count">6 / 54</span>
+        </div>
+        <div class="status-row">
+          <span class="status-key">Check</span>
+          <span class="status-value" id="entry-status">Pick colors for every sticker.</span>
+        </div>
+      </section>
+
+      <section class="counts-card">
+        <p class="card-label">Color Counts</p>
+        <div class="counts-list" id="counts-list"></div>
+      </section>
+
+      <section class="palette-card">
+        <p class="card-label">Pick A Color</p>
+        <div class="palette" id="palette">
+          <button class="color-chip selected" type="button" data-color="U" title="White"></button>
+          <button class="color-chip" type="button" data-color="R" title="Red"></button>
+          <button class="color-chip" type="button" data-color="F" title="Green"></button>
+          <button class="color-chip" type="button" data-color="D" title="Yellow"></button>
+          <button class="color-chip" type="button" data-color="L" title="Orange"></button>
+          <button class="color-chip" type="button" data-color="B" title="Blue"></button>
+          <button class="color-chip erase-chip" type="button" data-color="EMPTY" title="Clear sticker">X</button>
+        </div>
+      </section>
+
+      <section class="editor-card">
+        <p class="card-label">Cube Entry</p>
+        <div class="cube-editor" id="cube-editor"></div>
+      </section>
+    </aside>
+
+    <main class="scene-wrap">
+      <canvas id="scene"></canvas>
+      <section class="view-controls scene-controls">
+        <p class="card-label">View Controls</p>
+        <div class="arrow-pad">
+          <button id="rotate-up" type="button">▲</button>
+          <div class="arrow-row">
+            <button id="rotate-left" type="button">◀</button>
+            <button id="rotate-down" type="button">▼</button>
+            <button id="rotate-right" type="button">▶</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script type="module" src="script.js"></script>
+  </body>
+</html>
